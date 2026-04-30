@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import ru.easycode.zerotoheroandroidtdd.R
 import ru.easycode.zerotoheroandroidtdd.data.DefaultRepository
 
@@ -15,11 +16,14 @@ class MainActivity : AppCompatActivity() {
     private var progressBar: ProgressBar? = null
     private var titleTextView: TextView? = null
 
-    private val viewModel = MainViewModel(DefaultLiveDataWrapper(), DefaultRepository())
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val factory = MainViewModelFactory(DefaultLiveDataWrapper(), DefaultRepository())
+        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         actionButton = findViewById(R.id.actionButton)
         progressBar = findViewById(R.id.progressBar)
@@ -41,10 +45,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModel.onDestroy()
     }
 }

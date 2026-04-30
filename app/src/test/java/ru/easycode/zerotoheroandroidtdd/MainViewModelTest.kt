@@ -17,7 +17,7 @@ import ru.easycode.zerotoheroandroidtdd.ui.UiState
 
 /**
  * Please also check out the ui test
- * @see ru.easycode.zerotoheroandroidtdd.Task015Test
+ * @see ru.easycode.zerotoheroandroidtdd.Task016Test
  */
 class MainViewModelTest {
 
