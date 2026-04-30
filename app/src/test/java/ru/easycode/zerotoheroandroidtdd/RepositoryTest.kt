@@ -3,6 +3,10 @@ package ru.easycode.zerotoheroandroidtdd
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.core.LoadResult
+import ru.easycode.zerotoheroandroidtdd.data.SimpleService
+import ru.easycode.zerotoheroandroidtdd.data.model.SimpleResponse
+import ru.easycode.zerotoheroandroidtdd.domain.Repository
 import java.net.UnknownHostException
 
 class RepositoryTest {
