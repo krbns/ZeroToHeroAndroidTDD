@@ -6,5 +6,7 @@ interface LiveDataWrapper {
 
     fun update(value: UiState)
 
+    fun save(bundleWrapper: BundleWrapper.Save)
+
     fun liveData(): LiveData<UiState>
 }

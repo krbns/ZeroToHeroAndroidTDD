@@ -1,16 +1,20 @@
 package ru.easycode.zerotoheroandroidtdd.ui
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import ru.easycode.zerotoheroandroidtdd.SingleLiveEvent
 
 class DefaultLiveDataWrapper : LiveDataWrapper {
-    private val liveData = MutableLiveData<UiState>()
+    private val singleLiveEvent = SingleLiveEvent<UiState>()
 
     override fun update(value: UiState) {
-        liveData.postValue(value)
+        singleLiveEvent.setValue(value)
+    }
+
+    override fun save(bundleWrapper: BundleWrapper.Save) {
+        bundleWrapper.save(singleLiveEvent.value ?: UiState.ShowProgress)
     }
 
     override fun liveData(): LiveData<UiState> {
-        return liveData
+        return singleLiveEvent
     }
 }

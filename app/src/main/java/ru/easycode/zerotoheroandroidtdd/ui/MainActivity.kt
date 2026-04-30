@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import ru.easycode.zerotoheroandroidtdd.R
 import ru.easycode.zerotoheroandroidtdd.data.DefaultRepository
 
@@ -16,22 +15,22 @@ class MainActivity : AppCompatActivity() {
     private var progressBar: ProgressBar? = null
     private var titleTextView: TextView? = null
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel = MainViewModel(DefaultLiveDataWrapper(), DefaultRepository())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val factory = MainViewModelFactory(DefaultLiveDataWrapper(), DefaultRepository())
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
-
+        savedInstanceState?.let {
+            viewModel.restore(DefaultBundleWrapper(it))
+        }
         actionButton = findViewById(R.id.actionButton)
         progressBar = findViewById(R.id.progressBar)
         titleTextView = findViewById(R.id.titleTextView)
 
         actionButton?.setOnClickListener { viewModel.load() }
 
-        viewModel.liveData.liveData().observe(this) { state ->
+        viewModel.singleLiveDataWrapper.liveData().observe(this) { state ->
             when (state) {
                 is UiState.ShowData -> {
                     titleTextView?.visibility = View.VISIBLE
@@ -45,5 +44,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        viewModel.save(DefaultBundleWrapper(outState))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onDestroy()
     }
 }

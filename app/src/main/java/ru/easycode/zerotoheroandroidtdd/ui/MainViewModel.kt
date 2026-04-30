@@ -1,7 +1,5 @@
 package ru.easycode.zerotoheroandroidtdd.ui
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -12,11 +10,12 @@ import ru.easycode.zerotoheroandroidtdd.domain.Repository
 class MainViewModel(
     private val liveDataWrapper: LiveDataWrapper,
     private val repository: Repository,
-) : ViewModel() {
+) {
     private val job = SupervisorJob()
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main + job)
-    val liveData = liveDataWrapper
+
+    val singleLiveDataWrapper = liveDataWrapper
 
     fun load() {
         liveDataWrapper.update(UiState.ShowProgress)
@@ -27,24 +26,17 @@ class MainViewModel(
         }
     }
 
-
-    override fun onCleared() {
-        super.onCleared()
-        coroutineScope.cancel()
-
+    fun save(bundleWrapper: BundleWrapper.Save) {
+        liveDataWrapper.save(bundleWrapper)
     }
-}
 
-class MainViewModelFactory(
-    private val liveDataWrapper: LiveDataWrapper,
-    private val repository: Repository
-) : ViewModelProvider.Factory {
+    fun restore(bundleWrapper: BundleWrapper.Restore) {
+        val state = bundleWrapper.restore()
+        liveDataWrapper.update(state)
+    }
 
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel(liveDataWrapper, repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
+
+    fun onDestroy() {
+        coroutineScope.cancel()
     }
 }
