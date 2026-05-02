@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.ui.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.ui.ListLiveDataWrapper
 
 class MainViewModelTest {
 
