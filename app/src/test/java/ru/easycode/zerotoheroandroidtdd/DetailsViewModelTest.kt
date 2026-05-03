@@ -11,6 +11,10 @@ import ru.easycode.zerotoheroandroidtdd.FakeListLiveDataWrapper.Companion.LIVE_D
 import ru.easycode.zerotoheroandroidtdd.FakeListLiveDataWrapper.Companion.LIVE_DATA_UPDATE
 import ru.easycode.zerotoheroandroidtdd.FakeRepositoryChange.Companion.REPOSITORY_DELETE
 import ru.easycode.zerotoheroandroidtdd.FakeRepositoryChange.Companion.REPOSITORY_UPDATE
+import ru.easycode.zerotoheroandroidtdd.data.Item
+import ru.easycode.zerotoheroandroidtdd.data.Repository
+import ru.easycode.zerotoheroandroidtdd.details.DetailsViewModel
+import ru.easycode.zerotoheroandroidtdd.main.ItemUi
 
 class DetailsViewModelTest {
 
@@ -30,7 +34,7 @@ class DetailsViewModelTest {
         repository = FakeRepositoryChange.Base(order)
         clear = FakeClearViewModel.Base(order)
         viewModel = DetailsViewModel(
-            changeLiveDataWrapper = liveDataWrapper,
+            deleteLiveDataWrapper = liveDataWrapper,
             repository = repository,
             clear = clear,
             dispatcher = Dispatchers.Unconfined,
