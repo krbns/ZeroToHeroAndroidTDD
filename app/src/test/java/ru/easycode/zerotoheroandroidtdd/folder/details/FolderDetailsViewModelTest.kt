@@ -8,14 +8,17 @@ import ru.easycode.zerotoheroandroidtdd.core.FakeClear
 import ru.easycode.zerotoheroandroidtdd.core.FakeClear.Companion.CLEAR
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
+import ru.easycode.zerotoheroandroidtdd.core.NoteListLiveDataWrapper
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.edit.EditFolderScreen
-import ru.easycode.zerotoheroandroidtdd.folder.list.FolderUi
-import ru.easycode.zerotoheroandroidtdd.folder.list.FoldersListScreen
-import ru.easycode.zerotoheroandroidtdd.note.core.MyNote
-import ru.easycode.zerotoheroandroidtdd.note.core.NotesRepository
-import ru.easycode.zerotoheroandroidtdd.note.create.CreateNoteScreen
-import ru.easycode.zerotoheroandroidtdd.note.edit.EditNoteScreen
+import ru.easycode.zerotoheroandroidtdd.data.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.features.createnote.MyNote
+import ru.easycode.zerotoheroandroidtdd.features.createnote.NoteUi
+import ru.easycode.zerotoheroandroidtdd.features.details.FolderDetailsViewModel
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderUi
+import ru.easycode.zerotoheroandroidtdd.screens.CreateNoteScreen
+import ru.easycode.zerotoheroandroidtdd.screens.EditFolderScreen
+import ru.easycode.zerotoheroandroidtdd.screens.EditNoteScreen
+import ru.easycode.zerotoheroandroidtdd.screens.FoldersListScreen
 
 class FolderDetailsViewModelTest {
 

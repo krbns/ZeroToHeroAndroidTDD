@@ -8,12 +8,14 @@ import ru.easycode.zerotoheroandroidtdd.core.FakeClear
 import ru.easycode.zerotoheroandroidtdd.core.FakeClear.Companion.CLEAR
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
+import ru.easycode.zerotoheroandroidtdd.core.NoteListLiveDataWrapper
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.core.FolderLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.folder.details.FolderDetailsScreen
-import ru.easycode.zerotoheroandroidtdd.folder.details.NoteListLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.note.core.MyNote
-import ru.easycode.zerotoheroandroidtdd.note.core.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.data.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.features.createnote.MyNote
+import ru.easycode.zerotoheroandroidtdd.features.edit.EditNoteViewModel
+import ru.easycode.zerotoheroandroidtdd.features.edit.FolderDetailsScreen
+import ru.easycode.zerotoheroandroidtdd.features.edit.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.features.edit.NoteLiveDataWrapper
 
 class EditNoteViewModelTest {
 

@@ -3,8 +3,10 @@ package ru.easycode.zerotoheroandroidtdd.note.core
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.core.NoteCache
-import ru.easycode.zerotoheroandroidtdd.core.NotesDao
+import ru.easycode.zerotoheroandroidtdd.data.NoteCache
+import ru.easycode.zerotoheroandroidtdd.data.NotesDao
+import ru.easycode.zerotoheroandroidtdd.data.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.features.createnote.MyNote
 import ru.easycode.zerotoheroandroidtdd.folder.core.FakeNow
 
 class NotesRepositoryTest {

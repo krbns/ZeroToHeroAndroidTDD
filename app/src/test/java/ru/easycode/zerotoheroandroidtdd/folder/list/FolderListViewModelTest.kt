@@ -7,13 +7,16 @@ import org.junit.Test
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.core.Folder
-import ru.easycode.zerotoheroandroidtdd.folder.core.FolderLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.folder.core.FoldersRepository
-import ru.easycode.zerotoheroandroidtdd.folder.create.CreateFolderScreen
-import ru.easycode.zerotoheroandroidtdd.folder.details.FolderDetailsScreen
+import ru.easycode.zerotoheroandroidtdd.data.FoldersRepository
+import ru.easycode.zerotoheroandroidtdd.features.createnote.Folder
+import ru.easycode.zerotoheroandroidtdd.features.edit.FolderDetailsScreen
+import ru.easycode.zerotoheroandroidtdd.features.edit.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderListViewModel
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderUi
 import ru.easycode.zerotoheroandroidtdd.folder.list.FakeLiveDataWrapper.Companion.UPDATE
 import ru.easycode.zerotoheroandroidtdd.folder.list.FakeRepository.Companion.FOLDERS
+import ru.easycode.zerotoheroandroidtdd.screens.CreateFolderScreen
 
 class FolderListViewModelTest {
 
