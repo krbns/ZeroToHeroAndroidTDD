@@ -12,6 +12,7 @@ import ru.easycode.zerotoheroandroidtdd.core.nav.Navigation
 import ru.easycode.zerotoheroandroidtdd.data.NotesRepository
 import ru.easycode.zerotoheroandroidtdd.features.createnote.NoteUi
 import ru.easycode.zerotoheroandroidtdd.features.edit.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderUi
 import ru.easycode.zerotoheroandroidtdd.screens.CreateNoteScreen
 import ru.easycode.zerotoheroandroidtdd.screens.EditFolderScreen
 import ru.easycode.zerotoheroandroidtdd.screens.EditNoteScreen
@@ -25,7 +26,7 @@ class FolderDetailsViewModel(
     private val clear: ClearViewModels,
     private val dispatcher: CoroutineDispatcher,
     private val dispatcherMain: CoroutineDispatcher
-) : ViewModel(), NoteListLiveDataWrapper.Read {
+) : ViewModel() {
 
     private val viewModelScope = CoroutineScope(SupervisorJob() + dispatcherMain)
 
@@ -54,8 +55,13 @@ class FolderDetailsViewModel(
         navigation.update(EditFolderScreen(folderLiveDataWrapper.folderId()))
     }
 
-    override fun liveData(): LiveData<List<NoteUi>> {
-        TODO()
+
+    fun folder(): LiveData<FolderUi> {
+        return folderLiveDataWrapper.liveData()
+    }
+
+    fun noteList(): LiveData<List<NoteUi>> {
+        return liveDataWrapper.liveData()
     }
 
 }

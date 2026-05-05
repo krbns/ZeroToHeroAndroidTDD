@@ -1,5 +1,6 @@
 package ru.easycode.zerotoheroandroidtdd.folder.details
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -152,6 +153,10 @@ private interface FakeNoteListLiveDataWrapper : NoteListLiveDataWrapper.UpdateLi
 
         override fun check(expected: List<NoteUi>) {
             assertEquals(expected, actual)
+        }
+
+        override fun liveData(): LiveData<List<NoteUi>> {
+            TODO("not used in unit tests")
         }
     }
 }

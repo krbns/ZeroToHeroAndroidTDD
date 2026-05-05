@@ -50,13 +50,13 @@ class FoldersAdapter(
 
         override fun getNewListSize(): Int = newList.size
 
-
         override fun areItemsTheSame(p0: Int, p1: Int): Boolean {
-            return oldList[p0] == newList[p1]
+            return oldList[p0].id == newList[p1].id
+
         }
 
         override fun areContentsTheSame(p0: Int, p1: Int): Boolean {
-            return oldList[p0].id == newList[p1].id
+            return oldList[p0] == newList[p1]
         }
     }
 }

@@ -14,7 +14,7 @@ interface FoldersDao {
     @Query("DELETE FROM folders WHERE id = :folderId")
     suspend fun delete(folderId: Long)
 
-    @Query("SELECT * FROM folders ORDER BY id")
+    @Query("SELECT folders.id, folders.text, COUNT(notes.id) as notesCount FROM folders LEFT JOIN notes ON folders.id = notes.folderId GROUP BY folders.id ORDER BY folders.id")
     suspend fun folders(): List<FolderCache>
 
 }

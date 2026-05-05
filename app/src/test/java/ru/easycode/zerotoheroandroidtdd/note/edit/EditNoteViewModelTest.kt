@@ -1,5 +1,6 @@
 package ru.easycode.zerotoheroandroidtdd.note.edit
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -111,6 +112,10 @@ private interface FakeNoteLiveDataWrapper : NoteLiveDataWrapper {
         override fun update(noteText: String) {
             actual = noteText
             order.add(NOTE_LIVE_DATA)
+        }
+
+        override fun liveData(): LiveData<String> {
+            TODO("Not used in tests")
         }
     }
 }

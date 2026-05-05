@@ -1,5 +1,6 @@
 package ru.easycode.zerotoheroandroidtdd.features.edit
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -42,9 +43,13 @@ class EditNoteViewModel(
     fun renameNote(noteId: Long, newText: String) {
         viewModelScope.launch(dispatcher) {
             repository.renameNote(noteId, newText)
+            noteListLiveDataWrapper.update(noteId, newText)
         }
-        noteListLiveDataWrapper.update(noteId, newText)
         comeback()
+    }
+
+    fun noteName(): LiveData<String> {
+        return noteLiveDataWrapper.liveData()
     }
 
     fun comeback() {

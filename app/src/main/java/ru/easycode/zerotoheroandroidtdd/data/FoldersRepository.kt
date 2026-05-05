@@ -1,7 +1,7 @@
 package ru.easycode.zerotoheroandroidtdd.data
 
 import ru.easycode.zerotoheroandroidtdd.core.Now
-import ru.easycode.zerotoheroandroidtdd.features.createnote.Folder
+import ru.easycode.zerotoheroandroidtdd.features.details.Folder
 
 interface FoldersRepository {
 
@@ -18,11 +18,13 @@ interface FoldersRepository {
         suspend fun delete(folderId: Long)
     }
 
+    interface All : ReadList, Create, Edit
+
     class Base(
         private val now: Now,
         private val foldersDao: FoldersDao,
         private val notesDao: NotesDao,
-    ) : FoldersRepository, ReadList, Create, Edit {
+    ) : All {
 
         override suspend fun delete(folderId: Long) {
             foldersDao.delete(folderId)

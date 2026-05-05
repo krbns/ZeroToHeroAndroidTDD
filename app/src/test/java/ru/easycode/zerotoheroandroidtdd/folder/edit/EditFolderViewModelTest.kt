@@ -1,5 +1,6 @@
 package ru.easycode.zerotoheroandroidtdd.folder.edit
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -14,6 +15,7 @@ import ru.easycode.zerotoheroandroidtdd.features.details.FolderDetailsViewModel
 import ru.easycode.zerotoheroandroidtdd.features.edit.EditFolderViewModel
 import ru.easycode.zerotoheroandroidtdd.features.edit.FolderDetailsScreen
 import ru.easycode.zerotoheroandroidtdd.features.edit.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.features.folders.FolderUi
 import ru.easycode.zerotoheroandroidtdd.screens.FoldersListScreen
 
 class EditFolderViewModelTest {
@@ -111,7 +113,7 @@ private interface FakeEditFolderRepository : FoldersRepository.Edit {
 
 private const val RENAME_LIVEDATA = "FolderLiveDataWrapper.Rename#rename"
 
-private interface FakeRenameFolderLiveDataWrapper : FolderLiveDataWrapper.Rename {
+private interface FakeRenameFolderLiveDataWrapper : FolderLiveDataWrapper.RenameAndRead {
 
     fun check(expected: String)
 
@@ -126,6 +128,10 @@ private interface FakeRenameFolderLiveDataWrapper : FolderLiveDataWrapper.Rename
         override fun rename(newName: String) {
             order.add(RENAME_LIVEDATA)
             actual = newName
+        }
+
+        override fun liveData(): LiveData<FolderUi> {
+            TODO("Not used in test")
         }
     }
 }

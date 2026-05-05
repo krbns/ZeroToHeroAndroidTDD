@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd.features.createnote
+package ru.easycode.zerotoheroandroidtdd.features.details
 
 data class Folder(
     val id: Long,

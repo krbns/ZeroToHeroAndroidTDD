@@ -7,11 +7,14 @@
 
     <TextView
         android:id="@+id/folderTitleTextView"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_marginHorizontal="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/folderCountTextView"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

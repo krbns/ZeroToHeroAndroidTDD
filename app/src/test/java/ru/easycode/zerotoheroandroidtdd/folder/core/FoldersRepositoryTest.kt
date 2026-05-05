@@ -7,7 +7,7 @@ import ru.easycode.zerotoheroandroidtdd.core.Now
 import ru.easycode.zerotoheroandroidtdd.data.FolderCache
 import ru.easycode.zerotoheroandroidtdd.data.FoldersDao
 import ru.easycode.zerotoheroandroidtdd.data.FoldersRepository
-import ru.easycode.zerotoheroandroidtdd.features.createnote.Folder
+import ru.easycode.zerotoheroandroidtdd.features.details.Folder
 import ru.easycode.zerotoheroandroidtdd.note.core.FakeNotesDao
 
 class FoldersRepositoryTest {

@@ -21,10 +21,12 @@ interface NotesRepository {
         suspend fun note(noteId: Long): MyNote
     }
 
+    interface All : Edit, Create, ReadList
+
     class Base(
         private val now: Now,
         private val dao: NotesDao
-    ) : Edit, Create, ReadList {
+    ) : All {
 
         override suspend fun deleteNote(noteId: Long) {
             dao.delete(noteId)

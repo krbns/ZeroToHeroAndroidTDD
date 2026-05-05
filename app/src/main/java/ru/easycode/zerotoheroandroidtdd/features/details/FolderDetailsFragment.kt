@@ -39,6 +39,8 @@ class FolderDetailsFragment : AbstractFragment<FragmentFolderDetailsBinding>() {
         binding.notesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.notesRecyclerView.adapter = adapter
 
+        viewModel.init()
+
         binding.editFolderButton.setOnClickListener {
             viewModel.editFolder()
         }
@@ -47,10 +49,13 @@ class FolderDetailsFragment : AbstractFragment<FragmentFolderDetailsBinding>() {
             viewModel.createNote()
         }
 
-        viewModel.init()
-
-        viewModel.liveData().observe(viewLifecycleOwner) {
+        viewModel.noteList().observe(viewLifecycleOwner) {
             adapter.update(it)
+        }
+
+        viewModel.folder().observe(viewLifecycleOwner) {
+            binding.folderNameTextView.text = it.title
+            binding.notesCountTextView.text = it.notesCount.toString()
         }
     }
 

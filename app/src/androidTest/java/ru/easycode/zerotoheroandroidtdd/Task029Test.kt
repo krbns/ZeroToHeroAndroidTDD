@@ -51,7 +51,7 @@ class Task029Test {
         Espresso.pressBack()
         folderDetailsPage.checkNotVisibleNow()
         foldersListPage.checkVisibleNow()
-//        foldersListPage.checkFolder(position = 0, title = "first folder", count = "1")
+        foldersListPage.checkFolder(position = 0, title = "first folder", count = "1")
     }
 
     @Test
@@ -84,7 +84,7 @@ class Task029Test {
         createFolderPage.clickSaveButton()
         createFolderPage.checkNotVisibleNow()
         foldersListPage.checkVisibleNow()
-//        foldersListPage.checkFolder(position = 0, title = "new first folder", count = "0")
+        foldersListPage.checkFolder(position = 0, title = "new first folder", count = "0")
     }
 
     @Test

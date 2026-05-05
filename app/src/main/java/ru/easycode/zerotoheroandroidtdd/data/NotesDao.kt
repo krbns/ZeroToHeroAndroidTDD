@@ -16,7 +16,7 @@ interface NotesDao {
     @Query("SELECT * FROM notes WHERE id = :noteId")
     suspend fun note(noteId: Long): NoteCache
 
-    @Query("DELETE FROM notes WHERE id = :noteId")
+    @Query("DELETE FROM notes WHERE folderId = :noteId")
     suspend fun delete(noteId: Long)
 
     @Query("DELETE FROM notes WHERE id = :folderId")
