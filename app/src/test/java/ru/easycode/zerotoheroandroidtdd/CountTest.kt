@@ -2,6 +2,7 @@ package ru.easycode.zerotoheroandroidtdd
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.main.ui.Count
 import java.io.Serializable
 
 /**
