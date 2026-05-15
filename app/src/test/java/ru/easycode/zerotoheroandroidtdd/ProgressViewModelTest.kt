@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.data.Repository
+import ru.easycode.zerotoheroandroidtdd.ui.ProgressUi
+import ru.easycode.zerotoheroandroidtdd.ui.ProgressViewModel
 
 class ProgressViewModelTest {
 
