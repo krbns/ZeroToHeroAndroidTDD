@@ -18,6 +18,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.MainScreen
+import ru.easycode.MonitorConnection
 import ru.easycode.zerotoheroandroidtdd.ui.theme.ZeroToHeroAndroidTDDTheme
 
 @RunWith(AndroidJUnit4::class)
