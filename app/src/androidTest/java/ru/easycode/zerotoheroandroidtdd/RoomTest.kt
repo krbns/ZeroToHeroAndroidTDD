@@ -12,6 +12,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.dao.AppDatabase
+import ru.easycode.zerotoheroandroidtdd.dao.RecordEntity
+import ru.easycode.zerotoheroandroidtdd.dao.RecordsDao
 import java.io.IOException
 
 /**

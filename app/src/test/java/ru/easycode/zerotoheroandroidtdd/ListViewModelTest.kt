@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.dao.RecordEntity
+import ru.easycode.zerotoheroandroidtdd.dao.RecordsDao
 
 /**
  * Also check Task043UiTest and RoomTest
