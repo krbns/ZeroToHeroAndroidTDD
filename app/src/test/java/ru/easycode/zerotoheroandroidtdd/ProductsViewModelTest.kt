@@ -8,6 +8,9 @@ import kotlinx.coroutines.launch
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.data.ProductsRepository
+import ru.easycode.zerotoheroandroidtdd.domain.Product
+import ru.easycode.zerotoheroandroidtdd.domain.ProductFilter
 
 class ProductsViewModelTest {
 
@@ -288,6 +291,12 @@ class ProductsViewModelTest {
 }
 
 private class FakeRunAsync : RunAsync {
+
+    override fun run(scope: CoroutineScope, background: suspend () -> Unit) {
+        scope.launch(Dispatchers.Unconfined) {
+            background()
+        }
+    }
 
     override fun <T : Any> runFlowCollect(
         scope: CoroutineScope,
